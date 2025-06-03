@@ -73,7 +73,21 @@ ul li {
     font-size: 14px;
 }
 
-ul li.completed {
+li span {
+  flex: 1;
+  cursor: pointer;
+}
+
+li button {
+  margin-left: 5px;
+    padding: 5px 10px;
+  background: rgb(136, 71, 71);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.completed {
     text-decoration: line-through;
-    color: gray;
+    color: rgb(136, 71, 71);
 }

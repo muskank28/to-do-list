@@ -5,18 +5,32 @@ function addTask() {
     if (!task) return;
 
     const li = document.createElement("li");
-    li.textContent = task;
 
-    li.addEventListener("click", () => {
-        li.classList.toggle("completed");
+    const taskText = document.createElement("span");
+    taskText.textContent = task;
+
+    taskText.addEventListener("click", () => {
+        taskText.classList.toggle("completed");
     });
 
-    const btn = document.createElement("button");
-    btn.textContent = "X";
-    btn.onclick = () => li.remove();
+    const editBtn = document.createElement("button");
+    editBtn.textContent = "Edit";
+    editBtn.onclick = () => {
+        const updatedTask = prompt("Edit your task", taskText.textContent);
+        if (updatedTask) {
+            taskText.textContent = updatedTask;
+        }
+    };
 
-        li.appendChild(btn);
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "X";
+    deleteBtn.onclick = () => li.remove();
+
+    li.appendChild(taskText);
+    li.appendChild(editBtn);
+    li.appendChild(deleteBtn);
+
     document.getElementById("taskList").appendChild(li);
 
-    input.value = ""; 
+    input.value = "";
 }
